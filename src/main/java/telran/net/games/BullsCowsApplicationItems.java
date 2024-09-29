@@ -56,6 +56,7 @@ public class BullsCowsApplicationItems {
 		io.writeLine("Below are started game ID's, you are a gamer in");
 		displayLines(ids, io);
 		gameId = io.readLong("Enter any id from the above list", "Wrong ID");
+		//FIX display all moves of the gamer in the game (no appropriate service method)
 		runGameMenu(io);
 		}
 	}
@@ -68,7 +69,9 @@ public class BullsCowsApplicationItems {
 		io.writeLine("Below are not started game ID's, you are a gamer in");
 		displayLines(ids, io);
 		gameId = io.readLong("Enter any id from the above list", "Wrong ID");
-		bcService.startGame(gameId);
+		List<String> gamers = bcService.startGame(gameId);
+		io.writeLine("Game started with following gamers:");
+		displayLines(gamers, io);
 		runGameMenu(io);
 		}
 		
